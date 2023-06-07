@@ -25,3 +25,15 @@ export const isPast = (date) => date && dayjs().isAfter(date, 'D');
 export const isDatesEqual = (date1, date2) => (!date1 && !date2) || dayjs(date1).isSame(date2, 'D');
 
 export const getItemFromItemsById = (items, id) => (items.find((item) => item.id === id));
+
+export const generateKey = (length) => {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+};
